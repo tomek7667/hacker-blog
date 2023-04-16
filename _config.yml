@@ -1,16 +1,16 @@
-title: Hacker-Blog
-description: "A Jekyll Blog Theme For Hackers"
+title: tomek7667-blog
+description: "Cybersecurity, web security and internet nuances"
 author:
-  name: "SomeHacker"
-  email: "someone@somewebsite.somedomain"
-  url: "https://ashishchaudhary.in/hacker-blog"
+  name: "tomek7667"
+  email: "contact@cyber-man.pl"
+  url: "https://cyber-man.pl/"
 
 baseurl: /
 
 source: .
 destination: ./_site
 permalink: /:title
-paginate: 3
+paginate: 5
 paginate_path: /page/:num/
 
 defaults:
@@ -28,5 +28,5 @@ plugins:
   - jekyll-sitemap
 
 # Custom variables
-owner : "SomeHacker"
-year : "2020"
+owner : "tomek7667"
+year : "2023"
