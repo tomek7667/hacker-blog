@@ -1,4 +1,8 @@
-# JSCalc
+---
+title: HTB - JS Calc - web - easy
+published: true
+---
+
 
 Our input is passed directly to eval in `challenge/helpers/calculatorHelper.js:5`. The following payload will return to us `1` in the `message` and `console.log` in the `node` environment console:
 

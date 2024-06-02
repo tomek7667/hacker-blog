@@ -1,4 +1,7 @@
-# Insomnia
+---
+title: HTB - Insomnia - web - easy
+published: true
+---
 
 This challenge is a huge bootstrap app written in PHP.
 

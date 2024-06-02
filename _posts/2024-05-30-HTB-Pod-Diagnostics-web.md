@@ -1,4 +1,7 @@
-# POD Diagnostics
+---
+title: HTB - Pod Diagnostics - web - hard
+published: true
+---
 
 In order to get the flag we need RCE to call `/readflag` and get the output. The PDF generating server has `Access-Control-Allow-Origin` set to `*` so we can make a request from any server to use it, similarly the `stats` server. The stats server calls different stats commands:
 

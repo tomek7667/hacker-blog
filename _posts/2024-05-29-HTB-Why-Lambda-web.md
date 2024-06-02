@@ -1,4 +1,7 @@
-# Why Lambda
+---
+title: HTB - Why Lambda - web - hard
+published: true
+---
 
 The challenge have flag.txt referenced nowhere so either LFI or RCE. App has backend in flask and front in vue. The app has a bot and its password is ungettable afaik. When bot -> XSS. So I looked into vue XSS examples and all showed just `v-html` as the equivalent of innerHTML. Only `challenge/frontend/src/components/ImageBanner.vue:8` component contains it and is misleadingly *(because in normal html `textContent` is safe)* populated by `textContent` parameter. Other ways for XSS in vue are manipualting raw html, so I looked into usage of ImageBanner and how I can control the `textContent` value.
 
