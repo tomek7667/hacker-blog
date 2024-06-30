@@ -20,5 +20,4 @@ I was:
 
 Social:
 - [github](https://github.com/tomek7667)
-- [linkedin](www.linkedin.com/in/tomek7667)
 - [twitter](https://twitter.com/_tomek7667)
