@@ -14,6 +14,7 @@ I also am:
 
 I was:
 - a member of polish representation in the [European Cybersecurity Challenge](https://ecsc.eu/past-editions) in which Poland got **3rd place 🥉** *(8-11 oct. 2024 in Turin, Italy)*
+- in a winning pair 🥇 of polish ctf **153plus1** *(2023)*
 - the captain at [pingCTF](https://ctftime.org/team/147266) ctf team *(2021-2023)*
 - leading cybersecurity science club [ping](https://knping.pl/) at [gdańsk tech](https://pg.edu.pl/) *(2021-2023)*
 - working part-time at [carrier](https://www.carrier.com/commercial/pl/pl/) as a backend developer and then a Tech Lead *(2022-2024)*
