@@ -3,7 +3,7 @@ title: KalmarCTF - Ez flag v3 - web - 93 solves
 published: true
 ---
 
-# Ez ⛳ v3 - web
+# Ez flag v3 - web
 
 - Challenge description:
 
