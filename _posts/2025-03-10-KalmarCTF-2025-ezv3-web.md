@@ -64,11 +64,11 @@ private.caddy.chal-kalmarc.tf {
                 respond {$FLAG}
         }
         templates
-        respond /cat     `{{ cat "HELLO" "WORLD" }}`
-        respond /fetch/* `{{ httpInclude "/{http.request.orig_uri.path.1}" }}`
-        respond /headers `{{ .Req.Header | mustToPrettyJson }}`
-        respond /ip      `{{ .ClientIP }}`
-        respond /whoami  `{http.auth.user.id}`
+        respond /cat     `\{\{ cat "HELLO" "WORLD" \}\}`
+        respond /fetch/* `\{\{ httpInclude "/{http.request.orig_uri.path.1}" \}\}`
+        respond /headers `\{\{ .Req.Header | mustToPrettyJson \}\}`
+        respond /ip      `\{\{ .ClientIP \}\}`
+        respond /whoami  `\{http.auth.user.id\}`
         respond "UNKNOWN ACTION"
 }
 ```
@@ -122,10 +122,10 @@ private.caddy.chal-kalmarc.tf {
                 respond {$FLAG}
         }
         templates
-        respond /cat     `{{ cat "HELLO" "WORLD" }}`
-        respond /fetch/* `{{ httpInclude "/{http.request.orig_uri.path.1}" }}`
-        respond /headers `{{ .Req.Header | mustToPrettyJson }}`
-        respond /ip      `{{ .ClientIP }}`
+        respond /cat     `\{\{ cat "HELLO" "WORLD" \}\}`
+        respond /fetch/* `\{\{ httpInclude "/{http.request.orig_uri.path.1}" \}\}`
+        respond /headers `\{\{ .Req.Header | mustToPrettyJson \}\}`
+        respond /ip      `\{\{ .ClientIP \}\}`
         respond /whoami  `{http.auth.user.id}`
         respond "UNKNOWN ACTION"
 }
@@ -217,10 +217,10 @@ Alright. Let's see the templates and try to guess what they do:
 
 ```
 templates
-respond /cat     `{{ cat "HELLO" "WORLD" }}` << responds with HELLO WORLD
-respond /fetch/* `{{ httpInclude "/{http.request.orig_uri.path.1}" }}` << probably creates another request via `httpInclude` directive to a path that is specified after /fetch/HERE_PATH
-respond /headers `{{ .Req.Header | mustToPrettyJson }}` << responds with the headers sent with the request
-respond /ip      `{{ .ClientIP }}` << responds with the client ip address
+respond /cat     `\{\{ cat "HELLO" "WORLD" \}\}` << responds with HELLO WORLD
+respond /fetch/* `\{\{ httpInclude "/{http.request.orig_uri.path.1}" \}\}` << probably creates another request via `httpInclude` directive to a path that is specified after /fetch/HERE_PATH
+respond /headers `\{\{ .Req.Header | mustToPrettyJson \}\}` << responds with the headers sent with the request
+respond /ip      `\{\{ .ClientIP \}\}` << responds with the client ip address
 respond /whoami  `{http.auth.user.id}` << not useful as there's no auth here.
 ```
 
@@ -328,7 +328,7 @@ Request:
 GET /fetch/headers HTTP/2
 Host: private.caddy.chal-kalmarc.tf
 Caddy-Templates-Include: 1
-My-Header: {{ $FLAG }}
+My-Header: \{\{ $FLAG \}\}
 
 ```
 
@@ -352,7 +352,7 @@ Request:
 GET /fetch/headers HTTP/2
 Host: private.caddy.chal-kalmarc.tf
 Caddy-Templates-Include: 1
-My-Header: {{ cat `hi` }}
+My-Header: \{\{ cat `hi` \}\}
 
 ```
 
@@ -405,7 +405,7 @@ Request:
 GET /fetch/headers HTTP/2
 Host: private.caddy.chal-kalmarc.tf
 Caddy-Templates-Include: 1
-My-Header: {{ env `FLAG` }}
+My-Header: \{\{ env `FLAG` \}\}
 
 ```
 
