@@ -18,6 +18,8 @@ published: true
 
 ---
 
+**notice: all `\{\{` and `\}\}` were without a backslash, but jekyll breaks when including raw double curly braces**
+
 ## The Challenge
 
 The whole challenge is a `Caddyfile` which is a config adapter for [Caddy](https://caddyserver.com/):
