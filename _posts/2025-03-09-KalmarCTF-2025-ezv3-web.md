@@ -1,5 +1,5 @@
 ---
-title: KalmarCTF -  Ez ⛳ v3 - web - 93 solves
+title: KalmarCTF - Ez flag v3 - web - 93 solves
 published: true
 ---
 

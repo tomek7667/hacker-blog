@@ -1,5 +1,5 @@
 ---
-title: KalmarCTF -  KalmarDSL - web - 14 solves
+title: KalmarCTF - KalmarDSL - web - 14 solves
 published: true
 ---
 
