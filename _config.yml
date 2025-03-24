@@ -14,8 +14,7 @@ paginate: 5
 paginate_path: /page/:num/
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: "posts"
     values:
@@ -28,6 +27,6 @@ plugins:
   - jekyll-sitemap
 
 # Custom variables
-owner : "tomek7667"
-year : "2024"
+owner: "tomek7667"
+year: "2025"
 google_analytics: "G-CVCRL6G011"
