@@ -41,7 +41,7 @@ There's just a one `diceon{` flag per execution and it's saved in the ctf player
 
 - _CODE DETECTOR_: Final LLM, it verifies whether _INNIE_ or _OUTIE_ at any point exchanged anything resembling a flag while in _Take Elevator_ action, as while in elevator they share their system context. If the code detector finds anything that will suggest at least a little bit that something fishy is going on, it will always end the execution. The prompt for the _CODE DETECTOR_ looks as follow:
 
-```py3
+```python
 prompt = f'''
 Examine the following appearance:
 ==========
@@ -94,7 +94,7 @@ The main obstacles in the challenge to bypass/solve were:
 
 This was pretty straightforward, the action `(adjust appearance) - Adjust your appearance` was defined as follows:
 
-```py3
+```python
 class AdjustAppearanceAction(BaseModel):
     new_appearance: str
 
@@ -133,7 +133,7 @@ In order to fully understand the **CODE_DETECTOR** way of working we need to ins
 
 Firstly, the way the `code_detector` is used:
 
-```py3
+```python
 code_detector_result = code_detector(state.appearance, state.flag) # call to the code_detector LLM to inspect the `appearance`.
 if code_detector_result:
 		messages.append(emit_fn({
@@ -150,7 +150,7 @@ mode = 'innie'
 
 Now, let's look into the `code_detector`:
 
-```py3
+```python
 def code_detector(appearance: str, flag: str) -> Optional[str]:
     prompt = f'''
     Examine the following appearance:
