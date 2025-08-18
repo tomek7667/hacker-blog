@@ -8,7 +8,7 @@ I'm a cybersecurity enthusiast from Poland.
 I also am:
 
 - actively participating in various [CTFs](https://ctftime.org/event/list/upcoming) as a member of [justCatTheFish](https://justcatthefish.team/) ctf team ([ctftime link](https://ctftime.org/team/33893))
-- working full-time at [carrier](https://www.carrier.com/commercial/pl/pl/) as a data engineer / software engineer
+- working full-time at [carrier](https://www.carrier.com/commercial/pl/pl/) as a sr assoc software engineer
 - part-time studying computer science masters at [gdańsk tech](https://pg.edu.pl/) university
 - a bachelor of science at [gdańsk tech](https://pg.edu.pl/) on data engineering
 - freelancing on fullstack development
