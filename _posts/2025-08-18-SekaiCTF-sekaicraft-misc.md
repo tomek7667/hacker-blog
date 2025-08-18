@@ -1,9 +1,9 @@
 ---
-title: SekaiCTF 2025 - sekai-craft - misc/rev - 35 solves
+title: SekaiCTF 2025 - sekai-craft - mrev - 35 solves
 published: true
 ---
 
-# sekai-craft (misc/rev)
+# sekai-craft - rev
 
 _author: es3n1n_
 
