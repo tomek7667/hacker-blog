@@ -7,7 +7,7 @@ I'm a cybersecurity enthusiast from Poland.
 
 I also am:
 
-- looking for a stable, full-time job either as a sr software developer or a cybersecurity specialist/researcher focusing on web; remotely or in gdańsk
+- working as a sr software engineer in gdańsk
 - actively participating in various [CTFs](https://ctftime.org/event/list/upcoming) as a member of [justCatTheFish](https://justcatthefish.team/) ctf team ([ctftime link](https://ctftime.org/team/33893))
 - part-time studying computer science masters at [gdańsk tech](https://pg.edu.pl/) university
 - a bachelor of science at [gdańsk tech](https://pg.edu.pl/) on data engineering
