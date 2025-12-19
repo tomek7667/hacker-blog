@@ -19,8 +19,14 @@ _author: RyotaK_
 
 attachments:
 
-- [dummyhole.tar.gz](https://github.com/tomek7667/hacker-blog/raw/master/dummyhole.tar.gz)
+- [dummyhole.tar.gz](https://github.com/tomek7667/hacker-blog/raw/master/challenge_files/dummyhole.tar.gz)
 
 ## The Challenge
 
-<!-- todo -->
+After signing to the service, we are greeted with an upload image form with title and description options:
+
+![upload image form](https://github.com/tomek7667/hacker-blog/raw/master/challs_media/web-dummyhole/upload-image.webp)
+
+After submitting, we are redirected to `/posts?id=<uuid>` and we can see our just uploaded post:
+
+![newly created post](https://github.com/tomek7667/hacker-blog/raw/master/challs_media/web-dummyhole/newly-created-post.webp)
