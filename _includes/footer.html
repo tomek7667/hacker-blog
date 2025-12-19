@@ -225,34 +225,26 @@
 			}
 		});
 
-		// Views counter via Cloudflare Worker proxy
-		const WORKER_URL = "https://counters.tomek-aabiot.workers.dev";
-
+		// Views counter via GoatCounter API
 		const viewsElements = document.querySelectorAll(".views-count");
 
 		viewsElements.forEach(async (el) => {
 			const page = el.dataset.page;
-			const shouldIncrement = el.dataset.increment === "true";
 			const countEl = el.querySelector(".count");
 
 			if (!page) return;
 
-			const counterName = page.replace(/[^a-z0-9-]/gi, "-");
-
 			try {
-				const endpoint = shouldIncrement
-					? `${WORKER_URL}/counter/${counterName}/up`
-					: `${WORKER_URL}/counter/${counterName}`;
-
-				const res = await fetch(endpoint);
+				// GoatCounter counter endpoint
+				const res = await fetch(
+					`https://tomek7667.goatcounter.com/counter/${encodeURIComponent(
+						"/" + page
+					)}.json`
+				);
 
 				if (res.ok) {
 					const data = await res.json();
-					countEl.textContent = (
-						data.value ||
-						data.count ||
-						0
-					).toLocaleString();
+					countEl.textContent = (data.count || 0).toLocaleString();
 					el.style.display = "flex";
 				} else {
 					el.style.display = "none";
