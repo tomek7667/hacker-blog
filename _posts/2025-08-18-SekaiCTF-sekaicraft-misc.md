@@ -1,5 +1,5 @@
 ---
-title: SekaiCTF 2025 - sekai-craft - mrev - 35 solves
+title: SekaiCTF 2025 - sekai-craft - rev - 35 solves
 published: true
 ---
 
