@@ -12,11 +12,11 @@ I also am:
 - part-time studying computer science masters at [gdańsk tech](https://pg.edu.pl/) university
 - a bachelor of science at [gdańsk tech](https://pg.edu.pl/) on data engineering
 - freelancing on fullstack development
-- working on [`openctf`](https://github.com/tomek7667/openctf) which I hope will become a ctftime successor
-- loving golang recently <3
+- loving golang <3
 
 I was:
 
+- working on [`openctf`](https://github.com/tomek7667/openctf) which I hoped would become a ctftime successor
 - a member of polish representation in the [European Cybersecurity Challenge](https://ecsc.eu/past-editions) in which Poland got **3rd place 🥉** _(8-11 oct. 2024 in Turin, Italy)_
 - in a winning pair 🥇 of polish ctf **153plus1** _(2023)_
 - the captain at [pingCTF](https://ctftime.org/team/147266) ctf team _(2021-2023)_
