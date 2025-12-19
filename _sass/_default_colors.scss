@@ -1,19 +1,50 @@
-/*
-   original: https://github.com/pages-themes/hacker 
-*/
+// Custom color palette for cyber-man.pl
 
-$apple-blossom: #ac4142;
+// Primary accent - Cyber Cyan
+$primary: #00d4ff;
+$primary-glow: rgba(0, 212, 255, 0.3);
+
+// Secondary accent - Muted Cyan (slightly different shade)
+$secondary: #5eead4;
+$secondary-glow: rgba(94, 234, 212, 0.3);
+
+// Success/CTF green
+$success: #00ff88;
+$success-glow: rgba(0, 255, 136, 0.3);
+
+// Warning/highlight
+$warning: #ff6b6b;
+
+// Background colors
+$bg-darkest: #08080c;
+$bg-dark: #0c0c12;
+$bg-medium: #101016;
+$bg-light: #18181f;
+
+// Text colors
+$text-primary: #e8e8f0;
+$text-secondary: #a0a0b0;
+$text-muted: #606070;
+
+// Code colors
+$code-bg: #0a0a0e;
+$code-border: rgba(0, 212, 255, 0.2);
+$code-text: #00d4ff;
+$code-inline: #5eead4;
+
+// Legacy variable mappings for compatibility
+$apple-blossom: #ff6b6b;
 $alto: #d0d0d0;
-$bouquet: #aa759f;
-$chelsea-cucumber: #90a959;
-$cod-grey: #151515;
-$conifer: #b5e853;
-$dove-grey: #666;
-$gallery: #eaeaea;
-$grey: #888;
+$bouquet: $secondary;
+$chelsea-cucumber: $success;
+$cod-grey: $bg-darkest;
+$conifer: $primary;
+$dove-grey: $text-muted;
+$gallery: $text-primary;
+$grey: $text-secondary;
 $gulf-stream: #75b5aa;
 $hippie-blue: #6a9fb5;
 $potters-clay: #8f5536;
-$rajah: #f4bf75;
+$rajah: $warning;
 $raw-sienna: #d28445;
-$silver-chalice: #aaa;
+$silver-chalice: $text-secondary;

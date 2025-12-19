@@ -2,12 +2,48 @@
 layout: default
 ---
 
-<ul>
-    {% for post in paginator.posts %}
-      <li>
-          <h2><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">{{ post.title }}</a></h2>
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
-          <p>{{ post.content | strip_html | truncatewords:50 }}</p>
-      </li>
-    {% endfor %}
+<ul class="post-list">
+	{% for post in paginator.posts %}
+	<li>
+		<h2>
+			<a href="{{ post.url | relative_url }}" class="internal-link"
+				>{{ post.title }}</a
+			>
+		</h2>
+		<div class="post-meta">
+			<time datetime="{{ post.date | date_to_xmlschema }}"
+				>{{ post.date | date: "%B %d, %Y" }}</time
+			>
+			{% assign words = post.content | number_of_words %} {% assign minutes =
+			words | divided_by: 200 %} {% if minutes < 1 %}{% assign minutes = 1 %}{%
+			endif %}
+			<span class="reading-time">{{ minutes }} min read</span>
+			<span class="views-count" data-page="{{ post.url | slugify }}">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="14"
+					height="14"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+					<circle cx="12" cy="12" r="3"></circle>
+				</svg>
+				<span class="count">--</span>
+			</span>
+			{% if post.tags.size > 0 %}
+			<div class="tags">
+				{% for tag in post.tags limit:3 %}
+				<span class="tag">{{ tag }}</span>
+				{% endfor %}
+			</div>
+			{% endif %}
+		</div>
+		<p>{{ post.content | strip_html | truncatewords: 40 }}</p>
+	</li>
+	{% endfor %}
 </ul>

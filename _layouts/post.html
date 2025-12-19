@@ -3,7 +3,69 @@ layout: default
 ---
 
 <article>
-  <h2>{{ page.title }}</h2>
-  <time datetime="{{ page.date | date_to_xmlschema }}" class="by-line">{{ page.date | date_to_string }}</time>
-  {{ content }}
+	<h2>{{ page.title }}</h2>
+
+	<div class="post-meta">
+		<time datetime="{{ page.date | date_to_xmlschema }}"
+			>{{ page.date | date: "%B %d, %Y" }}</time
+		>
+
+		{% assign words = content | number_of_words %} {% assign minutes = words |
+		divided_by: 200 %} {% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
+		<span class="reading-time">{{ minutes }} min read</span>
+
+		<span
+			class="views-count"
+			data-page="{{ page.url | slugify }}"
+			data-increment="true"
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="14"
+				height="14"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
+				<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+				<circle cx="12" cy="12" r="3"></circle>
+			</svg>
+			<span class="count">--</span>
+		</span>
+
+		{% if page.tags.size > 0 %}
+		<div class="tags">
+			{% for tag in page.tags %}
+			<span class="tag">{{ tag }}</span>
+			{% endfor %}
+		</div>
+		{% endif %} {% if page.difficulty %}
+		<span class="difficulty difficulty-{{ page.difficulty | downcase }}"
+			>{{ page.difficulty }}</span
+		>
+		{% endif %}
+	</div>
+
+	{{ content }}
+
+	<nav class="post-nav">
+		{% if page.previous.url %}
+		<a href="{{ page.previous.url | relative_url }}" class="prev internal-link">
+			<div class="label">← Previous</div>
+			<div class="title">{{ page.previous.title }}</div>
+		</a>
+		{% else %}
+		<span></span>
+		{% endif %} {% if page.next.url %}
+		<a href="{{ page.next.url | relative_url }}" class="next internal-link">
+			<div class="label">Next →</div>
+			<div class="title">{{ page.next.title }}</div>
+		</a>
+		{% else %}
+		<span></span>
+		{% endif %}
+	</nav>
 </article>

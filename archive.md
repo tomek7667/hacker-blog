@@ -3,36 +3,26 @@ layout: page
 title: Archive
 ---
 
-<section>
-  {% if site.posts[0] %}
-
-    {% capture currentyear %}{{ 'now' | date: "%Y" }}{% endcapture %}
-    {% capture firstpostyear %}{{ site.posts[0].date | date: '%Y' }}{% endcapture %}
-    {% if currentyear == firstpostyear %}
-        <h3>This year's posts</h3>
-    {% else %}  
-        <h3>{{ firstpostyear }}</h3>
+<div class="archive-list">
+{% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+{% for year in postsByYear %}
+<h3>{{ year.name }}</h3>
+<ul style="list-style: none; padding: 0;">
+  {% for post in year.items %}
+  <li class="archive-item">
+    <div class="archive-item-header">
+      <a href="{{ post.url | relative_url }}" class="internal-link">{{ post.title }}</a>
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d" }}</time>
+    </div>
+    {% if post.tags.size > 0 %}
+    <div class="tags">
+      {% for tag in post.tags limit:3 %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
     {% endif %}
-
-    {%for post in site.posts %}
-      {% unless post.next %}
-        <ul>
-      {% else %}
-        {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-        {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
-        {% if year != nyear %}
-          </ul>
-          <h3>{{ post.date | date: '%Y' }}</h3>
-          <ul>
-        {% endif %}
-      {% endunless %}
-        <li><time>{{ post.date | date:"%d %b" }} - </time>
-          <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
-            {{ post.title }}
-          </a>
-        </li>
-    {% endfor %}
-    </ul>
-
-  {% endif %}
-</section>
+  </li>
+  {% endfor %}
+</ul>
+{% endfor %}
+</div>

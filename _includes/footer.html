@@ -1,9 +1,265 @@
 <footer>
-  <a href="https://creativecommons.org/licenses/by-nc/3.0/deed.en_US">
-    <span>
-        <b>{{ site.owner}}</b>
-    </span>
-    {% capture currentyear %}{{ 'now' | date: "%Y" }}{% endcapture %}
-    <span>© {{ currentyear }}</span>
-  </a>
+	<div class="footer-content">
+		<div class="social-links">
+			<a
+				href="https://github.com/tomek7667"
+				class="social-link"
+				aria-label="GitHub"
+				target="_blank"
+				rel="noopener"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					fill="currentColor"
+				>
+					<path
+						d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+					/>
+				</svg>
+			</a>
+			<a
+				href="https://x.com/_tomek7667"
+				class="social-link"
+				aria-label="X"
+				target="_blank"
+				rel="noopener"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					fill="currentColor"
+				>
+					<path
+						d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+					/>
+				</svg>
+			</a>
+			<a
+				href="https://ctftime.org/team/33893"
+				class="social-link"
+				aria-label="CTFtime"
+				target="_blank"
+				rel="noopener"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					fill="currentColor"
+				>
+					<path
+						d="M4 4h16v2H4V4zm0 4h16v2H4V8zm0 4h10v2H4v-2zm0 4h16v2H4v-2zm14-4l4 4-4 4v-8z"
+					/>
+				</svg>
+			</a>
+			<a
+				href="mailto:{{ site.author.email }}"
+				class="social-link"
+				aria-label="Email"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+				>
+					<path
+						d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+					/>
+					<polyline points="22,6 12,13 2,6" />
+				</svg>
+			</a>
+			<a href="/atom.xml" class="social-link" aria-label="RSS Feed">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					fill="currentColor"
+				>
+					<circle cx="6.18" cy="17.82" r="2.18" />
+					<path
+						d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"
+					/>
+				</svg>
+			</a>
+		</div>
+		<p class="footer-text">
+			{{ site.owner }} &copy; {% capture currentyear %}{{ 'now' | date: "%Y"
+			}}{% endcapture %}{{ currentyear }}
+		</p>
+	</div>
 </footer>
+
+<!-- Scroll to top button -->
+<button class="scroll-top" onclick="scrollToTop()" aria-label="Scroll to top">
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="24"
+		height="24"
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke="currentColor"
+		stroke-width="2"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+	>
+		<polyline points="18 15 12 9 6 15"></polyline>
+	</svg>
+</button>
+
+<!-- Lightbox -->
+<div class="lightbox" onclick="closeLightbox()">
+	<img src="" alt="Enlarged image" />
+</div>
+
+<script>
+	// Theme toggle
+	function toggleTheme() {
+		const html = document.documentElement;
+		const currentTheme = html.getAttribute("data-theme");
+		const newTheme = currentTheme === "dark" ? "light" : "dark";
+		html.setAttribute("data-theme", newTheme);
+		localStorage.setItem("theme", newTheme);
+		updateThemeIcon(newTheme);
+	}
+
+	function updateThemeIcon(theme) {
+		const sunIcon = document.querySelector(".sun-icon");
+		const moonIcon = document.querySelector(".moon-icon");
+		if (theme === "dark") {
+			sunIcon.style.display = "block";
+			moonIcon.style.display = "none";
+		} else {
+			sunIcon.style.display = "none";
+			moonIcon.style.display = "block";
+		}
+	}
+
+	// Initialize theme icon
+	document.addEventListener("DOMContentLoaded", function () {
+		const theme = localStorage.getItem("theme") || "dark";
+		updateThemeIcon(theme);
+	});
+
+	// Scroll to top
+	function scrollToTop() {
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	}
+
+	// Show/hide scroll button
+	window.addEventListener("scroll", function () {
+		const scrollBtn = document.querySelector(".scroll-top");
+		if (window.scrollY > 300) {
+			scrollBtn.classList.add("visible");
+		} else {
+			scrollBtn.classList.remove("visible");
+		}
+	});
+
+	// Lightbox for images
+	document.addEventListener("DOMContentLoaded", function () {
+		const images = document.querySelectorAll("article img, section img");
+		const lightbox = document.querySelector(".lightbox");
+		const lightboxImg = lightbox.querySelector("img");
+
+		images.forEach((img) => {
+			img.addEventListener("click", function () {
+				lightboxImg.src = this.src;
+				lightboxImg.alt = this.alt;
+				lightbox.classList.add("active");
+				document.body.style.overflow = "hidden";
+			});
+		});
+	});
+
+	function closeLightbox() {
+		const lightbox = document.querySelector(".lightbox");
+		lightbox.classList.remove("active");
+		document.body.style.overflow = "";
+	}
+
+	// Close lightbox on escape
+	document.addEventListener("keydown", function (e) {
+		if (e.key === "Escape") {
+			closeLightbox();
+		}
+	});
+
+	// Copy code button
+	document.addEventListener("DOMContentLoaded", function () {
+		const codeBlocks = document.querySelectorAll("pre");
+
+		codeBlocks.forEach((block) => {
+			const wrapper = document.createElement("div");
+			wrapper.className = "code-block-wrapper";
+			block.parentNode.insertBefore(wrapper, block);
+			wrapper.appendChild(block);
+
+			const copyBtn = document.createElement("button");
+			copyBtn.className = "copy-btn";
+			copyBtn.textContent = "Copy";
+			wrapper.appendChild(copyBtn);
+
+			copyBtn.addEventListener("click", async function () {
+				const code = block.querySelector("code") || block;
+				await navigator.clipboard.writeText(code.textContent);
+				copyBtn.textContent = "Copied!";
+				copyBtn.classList.add("copied");
+				setTimeout(() => {
+					copyBtn.textContent = "Copy";
+					copyBtn.classList.remove("copied");
+				}, 2000);
+			});
+		});
+
+		// Open external links in new tab (skip internal navigation)
+		const links = document.querySelectorAll("article a, section a");
+		links.forEach((link) => {
+			if (link.classList.contains("internal-link")) return;
+			const href = link.getAttribute("href");
+			if (href && (href.startsWith("http") || href.startsWith("//"))) {
+				if (!href.includes(window.location.hostname)) {
+					link.setAttribute("target", "_blank");
+					link.setAttribute("rel", "noopener noreferrer");
+				}
+			}
+		});
+
+		// Views counter via Cloudflare Worker proxy
+		const WORKER_URL = "https://counters.tomek-aabiot.workers.dev";
+
+		const viewsElements = document.querySelectorAll(".views-count");
+
+		viewsElements.forEach(async (el) => {
+			const page = el.dataset.page;
+			const shouldIncrement = el.dataset.increment === "true";
+			const countEl = el.querySelector(".count");
+
+			if (!page) return;
+
+			const counterName = page.replace(/[^a-z0-9-]/gi, "-");
+
+			try {
+				const endpoint = shouldIncrement
+					? `${WORKER_URL}/counter/${counterName}/up`
+					: `${WORKER_URL}/counter/${counterName}`;
+
+				const res = await fetch(endpoint);
+
+				if (res.ok) {
+					const data = await res.json();
+					countEl.textContent = (
+						data.value ||
+						data.count ||
+						0
+					).toLocaleString();
+					el.style.display = "flex";
+				} else {
+					el.style.display = "none";
+				}
+			} catch (e) {
+				el.style.display = "none";
+			}
+		});
+	});
+</script>
