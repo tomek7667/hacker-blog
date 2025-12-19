@@ -90,7 +90,6 @@
 	</div>
 </footer>
 
-<!-- Scroll to top button -->
 <button class="scroll-top" onclick="scrollToTop()" aria-label="Scroll to top">
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -107,13 +106,11 @@
 	</svg>
 </button>
 
-<!-- Lightbox -->
 <div class="lightbox" onclick="closeLightbox()">
 	<img src="" alt="Enlarged image" />
 </div>
 
 <script>
-	// Theme toggle
 	function toggleTheme() {
 		const html = document.documentElement;
 		const currentTheme = html.getAttribute("data-theme");
@@ -135,18 +132,15 @@
 		}
 	}
 
-	// Initialize theme icon
 	document.addEventListener("DOMContentLoaded", function () {
 		const theme = localStorage.getItem("theme") || "dark";
 		updateThemeIcon(theme);
 	});
 
-	// Scroll to top
 	function scrollToTop() {
 		window.scrollTo({ top: 0, behavior: "smooth" });
 	}
 
-	// Show/hide scroll button
 	window.addEventListener("scroll", function () {
 		const scrollBtn = document.querySelector(".scroll-top");
 		if (window.scrollY > 300) {
@@ -156,7 +150,6 @@
 		}
 	});
 
-	// Lightbox for images
 	document.addEventListener("DOMContentLoaded", function () {
 		const images = document.querySelectorAll("article img, section img");
 		const lightbox = document.querySelector(".lightbox");
@@ -178,14 +171,12 @@
 		document.body.style.overflow = "";
 	}
 
-	// Close lightbox on escape
 	document.addEventListener("keydown", function (e) {
 		if (e.key === "Escape") {
 			closeLightbox();
 		}
 	});
 
-	// Copy code button
 	document.addEventListener("DOMContentLoaded", function () {
 		const codeBlocks = document.querySelectorAll("pre");
 
@@ -212,7 +203,6 @@
 			});
 		});
 
-		// Open external links in new tab (skip internal navigation)
 		const links = document.querySelectorAll("article a, section a");
 		links.forEach((link) => {
 			if (link.classList.contains("internal-link")) return;
@@ -225,7 +215,6 @@
 			}
 		});
 
-		// Views counter via GoatCounter API
 		const viewsElements = document.querySelectorAll(".views-count");
 
 		viewsElements.forEach(async (el) => {
@@ -235,16 +224,16 @@
 			if (!page) return;
 
 			try {
-				// GoatCounter counter endpoint
+				const path = "/" + page;
 				const res = await fetch(
 					`https://tomek7667.goatcounter.com/counter/${encodeURIComponent(
-						"/" + page
+						path
 					)}.json`
 				);
 
 				if (res.ok) {
 					const data = await res.json();
-					countEl.textContent = (data.count || 0).toLocaleString();
+					countEl.textContent = data.count || "0";
 					el.style.display = "flex";
 				} else {
 					el.style.display = "none";
