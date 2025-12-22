@@ -1,6 +1,18 @@
+# tomek7667
+
+dev:
+
+```bash
+# Install dependencies (first time only)
+bundle install
+
+# Start local server
+bundle exec jekyll serve
+```
+
 # The Hacker-Blog theme
 
-*Hacker-Blog is a minimalistic, responsive jekyll theme built for hackers. It is based on the [hacker theme](https://github.com/pages-themes/hacker) for project pages.*
+_Hacker-Blog is a minimalistic, responsive jekyll theme built for hackers. It is based on the [hacker theme](https://github.com/pages-themes/hacker) for project pages._
 
 Demo: [https://ashishchaudhary.in/hacker-blog](https://ashishchaudhary.in/hacker-blog)
 
@@ -33,7 +45,7 @@ If you want to see the changes before pushing the blog to Github, do a local bui
 5. (`cd` to the blog directory, then:) `jekyll serve --watch --port 8000`
 6. Go to `http://0.0.0.0:8000/` in your web browser.
 
-*Note: In case you have set a `baseurl` different than `/` in `_config.yml`, go to `http://0.0.0.0:8000/BASEURL/` instead.*
+_Note: In case you have set a `baseurl` different than `/` in `_config.yml`, go to `http://0.0.0.0:8000/BASEURL/` instead._
 
 ### Local build using docker
 
@@ -46,7 +58,7 @@ docker run --rm -p 8000:8000 \
 
 Replace `LOCATION_OF_YOUR_JEKYLL_BLOG` with the full path of your blog repository. Visit `http://localhost:8000/` to access the blog.
 
-*Note: In case you have set a `baseurl` different than `/` in `_config.yml`, go to `http://0.0.0.0:8000/BASEURL/` instead.*
+_Note: In case you have set a `baseurl` different than `/` in `_config.yml`, go to `http://0.0.0.0:8000/BASEURL/` instead._
 
 ## Customizing
 
@@ -69,7 +81,7 @@ owner: [Your name]
 year: [Current Year]
 ```
 
-*Note: All links in the site are prepended with `baseurl`. Default `baseurl` is `/`. Any other baseurl can be setup like `baseurl: /hacker-blog`, which makes the site available at `http://domain.name/hacker-blog`.*
+_Note: All links in the site are prepended with `baseurl`. Default `baseurl` is `/`. Any other baseurl can be setup like `baseurl: /hacker-blog`, which makes the site available at `http://domain.name/hacker-blog`._
 
 Additionally, you may choose to set the following optional variables:
 

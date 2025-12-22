@@ -243,4 +243,188 @@
 			}
 		});
 	});
+
+	// Search functionality
+	let searchData = null;
+	let searchLoaded = false;
+
+	async function loadSearchData() {
+		if (searchLoaded) return;
+		try {
+			const res = await fetch("/search.json");
+			searchData = await res.json();
+			searchLoaded = true;
+			populateCategoryFilter();
+		} catch (e) {
+			console.error("Failed to load search data:", e);
+		}
+	}
+
+	function populateCategoryFilter() {
+		const categoryFilter = document.getElementById("categoryFilter");
+		if (!categoryFilter || !searchData) return;
+
+		const categories = new Set();
+		searchData.forEach((post) => {
+			if (post.tags) {
+				post.tags.forEach((tag) => categories.add(tag));
+			}
+		});
+
+		Array.from(categories)
+			.sort()
+			.forEach((cat) => {
+				const option = document.createElement("option");
+				option.value = cat;
+				option.textContent = cat;
+				categoryFilter.appendChild(option);
+			});
+	}
+
+	function toggleSearch() {
+		const overlay = document.getElementById("searchOverlay");
+		const input = document.getElementById("searchInput");
+
+		if (overlay.classList.contains("active")) {
+			overlay.classList.remove("active");
+			document.body.style.overflow = "";
+		} else {
+			loadSearchData();
+			overlay.classList.add("active");
+			document.body.style.overflow = "hidden";
+			setTimeout(() => input.focus(), 100);
+			showSearchHint();
+		}
+	}
+
+	function showSearchHint() {
+		const results = document.getElementById("searchResults");
+		results.innerHTML = `
+			<div class="search-hint">
+				<p>Search by title, content, tags, or difficulty</p>
+				<p>Press <kbd>Esc</kbd> to close</p>
+			</div>
+		`;
+	}
+
+	function performSearch() {
+		const query = document
+			.getElementById("searchInput")
+			.value.toLowerCase()
+			.trim();
+		const category = document
+			.getElementById("categoryFilter")
+			.value.toLowerCase();
+		const difficulty = document
+			.getElementById("difficultyFilter")
+			.value.toLowerCase();
+		const results = document.getElementById("searchResults");
+
+		if (!searchData) {
+			results.innerHTML = '<div class="search-no-results">Loading...</div>';
+			return;
+		}
+
+		if (!query && !category && !difficulty) {
+			showSearchHint();
+			return;
+		}
+
+		const filtered = searchData.filter((post) => {
+			const matchesQuery =
+				!query ||
+				post.title.toLowerCase().includes(query) ||
+				(post.content && post.content.toLowerCase().includes(query)) ||
+				(post.tags && post.tags.some((t) => t.toLowerCase().includes(query))) ||
+				(post.difficulty && post.difficulty.toLowerCase().includes(query));
+
+			const matchesCategory =
+				!category ||
+				(post.tags && post.tags.some((t) => t.toLowerCase() === category));
+
+			const matchesDifficulty =
+				!difficulty ||
+				(post.difficulty && post.difficulty.toLowerCase() === difficulty);
+
+			return matchesQuery && matchesCategory && matchesDifficulty;
+		});
+
+		if (filtered.length === 0) {
+			results.innerHTML =
+				'<div class="search-no-results">No results found</div>';
+			return;
+		}
+
+		results.innerHTML = filtered
+			.map(
+				(post) => `
+			<a href="${post.url}" class="search-result-item">
+				<div class="search-result-title">${escapeHtml(post.title)}</div>
+				<div class="search-result-meta">
+					<span class="search-result-date">${post.date}</span>
+					${
+						post.tags
+							? post.tags
+									.slice(0, 3)
+									.map((t) => `<span class="tag">${escapeHtml(t)}</span>`)
+									.join("")
+							: ""
+					}
+					${
+						post.difficulty
+							? `<span class="difficulty difficulty-${post.difficulty}">${post.difficulty}</span>`
+							: ""
+					}
+				</div>
+				<div class="search-result-excerpt">${escapeHtml(post.content || "")}</div>
+			</a>
+		`
+			)
+			.join("");
+	}
+
+	function escapeHtml(text) {
+		const div = document.createElement("div");
+		div.textContent = text;
+		return div.innerHTML;
+	}
+
+	document.addEventListener("DOMContentLoaded", function () {
+		const searchInput = document.getElementById("searchInput");
+		const categoryFilter = document.getElementById("categoryFilter");
+		const difficultyFilter = document.getElementById("difficultyFilter");
+		const overlay = document.getElementById("searchOverlay");
+
+		if (searchInput) {
+			searchInput.addEventListener("input", performSearch);
+		}
+		if (categoryFilter) {
+			categoryFilter.addEventListener("change", performSearch);
+		}
+		if (difficultyFilter) {
+			difficultyFilter.addEventListener("change", performSearch);
+		}
+		if (overlay) {
+			overlay.addEventListener("click", function (e) {
+				if (e.target === overlay) {
+					toggleSearch();
+				}
+			});
+		}
+
+		// Keyboard shortcut: Ctrl/Cmd + K to open search
+		document.addEventListener("keydown", function (e) {
+			if ((e.ctrlKey || e.metaKey) && e.key === "k") {
+				e.preventDefault();
+				toggleSearch();
+			}
+			if (
+				e.key === "Escape" &&
+				overlay &&
+				overlay.classList.contains("active")
+			) {
+				toggleSearch();
+			}
+		});
+	});
 </script>

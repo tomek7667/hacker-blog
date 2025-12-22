@@ -14,13 +14,18 @@ title: Archive
       <a href="{{ post.url | relative_url }}" class="internal-link">{{ post.title }}</a>
       <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d" }}</time>
     </div>
-    {% if post.tags.size > 0 %}
-    <div class="tags">
-      {% for tag in post.tags limit:3 %}
-      <span class="tag">{{ tag }}</span>
-      {% endfor %}
+    <div class="archive-item-meta">
+      {% if post.difficulty %}
+      <span class="difficulty difficulty-{{ post.difficulty }}">{{ post.difficulty }}</span>
+      {% endif %}
+      {% if post.tags.size > 0 %}
+      <div class="tags">
+        {% for tag in post.tags limit:3 %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
     </div>
-    {% endif %}
   </li>
   {% endfor %}
 </ul>

@@ -4,8 +4,53 @@
       {{ site.owner | downcase }}
     </a>
     <div class="header-links">
-      <a href="{{ "/about" | relative_url }}" class="header-link internal-link">About me</a>
-      <a href="{{ "/archive" | relative_url }}" class="header-link internal-link">Archive</a>
+      <a href="{{ "/about" | relative_url }}" class="header-link internal-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span class="header-link-text">About me</span>
+      </a>
+      <div class="search-container">
+        <button class="search-toggle" onclick="toggleSearch()" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="M21 21l-4.35-4.35"></path>
+          </svg>
+          <span class="header-link-text">Search</span>
+        </button>
+        <div class="search-overlay" id="searchOverlay">
+          <div class="search-modal">
+            <div class="search-header">
+              <input type="text" id="searchInput" placeholder="Search by title, tags, difficulty..." autocomplete="off">
+              <button class="search-close" onclick="toggleSearch()" aria-label="Close search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+            <div class="search-filters">
+              <select id="categoryFilter">
+                <option value="">All Categories</option>
+              </select>
+              <select id="difficultyFilter">
+                <option value="">All Difficulties</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+              </select>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+          </div>
+        </div>
+      </div>
+      <a href="{{ "/archive" | relative_url }}" class="header-link internal-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span class="header-link-text">Archive</span>
+      </a>
       <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
         <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
