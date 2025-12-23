@@ -4,7 +4,11 @@ title: About
 ---
 
 <div id="about-3d"></div>
-<script type="module" src="/assets/js/about-animation.js"></script>
+<script type="module">
+if (window.innerWidth > 768) {
+	import('/assets/js/about-animation.js');
+}
+</script>
 
 <style>
 #about-3d {
@@ -19,10 +23,7 @@ title: About
 
 @media (max-width: 768px) {
 	#about-3d {
-		position: relative;
-		margin: 0 auto 2rem;
-		width: 200px;
-		height: 200px;
+		display: none;
 	}
 }
 
