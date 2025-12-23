@@ -1,6 +1,20 @@
 ---
 title: ECSC 24 Polish Qualifications - Semantic Security - crypto - easy
 published: true
+category: crypto
+tags: [xor]
+difficulty: easy
+seo_description: "ECSC 2024 Polish Qualifications Semantic Security crypto challenge writeup. XOR keystream attack exploiting missing byte value 255 in random.randrange."
+seo_keywords:
+  - ECSC 2024
+  - Polish Qualifications
+  - Semantic Security writeup
+  - CTF writeup
+  - cryptography
+  - XOR cipher attack
+  - Python random.randrange
+  - keystream analysis
+  - pwntools
 ---
 
 The description of the challenge is as follows:

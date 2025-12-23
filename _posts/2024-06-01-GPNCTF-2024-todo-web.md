@@ -1,6 +1,20 @@
 ---
 title: GPN CTF 2024 - todo - web
 published: true
+category: web
+tags: [xss, csp-bypass]
+difficulty: easy
+seo_description: "GPN CTF 2024 todo challenge writeup. CSP bypass using window.open to navigate to script.js containing the flag in a comment."
+seo_keywords:
+  - GPN CTF 2024
+  - todo writeup
+  - CTF writeup
+  - web security
+  - CSP bypass
+  - Content Security Policy
+  - XSS attack
+  - JavaScript toString
+  - bot exploitation
 ---
 
 The challenge is a simple express app with a bot and a very strict [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP), which allows only for injected in-line javascript within `<script></script>` tags, and script from the same origin.

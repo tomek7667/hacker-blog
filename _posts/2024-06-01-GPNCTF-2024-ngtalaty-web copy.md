@@ -1,6 +1,19 @@
 ---
 title: GPN CTF 2024 - never-gonna-tell-a-lie-and-type-you - web
 published: true
+category: web
+tags: [php, type-juggling]
+difficulty: easy
+seo_description: "GPN CTF 2024 never-gonna-tell-a-lie-and-type-you challenge writeup. PHP type juggling with Infinity comparison bypass to achieve command execution."
+seo_keywords:
+  - GPN CTF 2024
+  - PHP type juggling
+  - CTF writeup
+  - web security
+  - Infinity bypass
+  - PHP loose comparison
+  - command injection
+  - scientific notation exploit
 ---
 
 Based on the attached `Dockerfile`, we know that the flag is at `/flag.txt`, and the app is a simple php login riddle:

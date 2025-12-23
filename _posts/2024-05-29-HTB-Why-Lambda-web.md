@@ -1,6 +1,21 @@
 ---
 title: HTB - Why Lambda - web - hard
 published: true
+category: web
+tags: [xss, rce, keras, vue]
+difficulty: hard
+seo_description: "HackTheBox Why Lambda web challenge writeup. XSS via Vue v-html to trigger malicious Keras model upload achieving RCE through Lambda layer."
+seo_keywords:
+  - HackTheBox
+  - HTB Why Lambda
+  - CTF writeup
+  - web security
+  - XSS attack
+  - Vue.js v-html
+  - Keras malicious model
+  - RCE exploit
+  - Python Flask
+  - machine learning exploit
 ---
 
 The challenge have flag.txt referenced nowhere so either LFI or RCE. App has backend in flask and front in vue. The app has a bot and its password is ungettable afaik. When bot -> XSS. So I looked into vue XSS examples and all showed just `v-html` as the equivalent of innerHTML. Only `challenge/frontend/src/components/ImageBanner.vue:8` component contains it and is misleadingly *(because in normal html `textContent` is safe)* populated by `textContent` parameter. Other ways for XSS in vue are manipualting raw html, so I looked into usage of ImageBanner and how I can control the `textContent` value.

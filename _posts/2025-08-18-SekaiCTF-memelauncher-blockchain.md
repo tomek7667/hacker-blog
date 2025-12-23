@@ -1,6 +1,21 @@
 ---
 title: SekaiCTF 2025 - Meme Launcher - blockchain - 13 solves
 published: true
+category: blockchain
+tags: [defi, uniswap, yul]
+difficulty: medium
+seo_description: "SekaiCTF 2025 Meme Launcher blockchain challenge writeup. Exploiting Yul swap function to drain VC treasury via presale and Uniswap V2 arbitrage."
+seo_keywords:
+  - SekaiCTF 2025
+  - Meme Launcher writeup
+  - CTF writeup
+  - blockchain security
+  - Solidity exploit
+  - Yul assembly
+  - Uniswap V2 arbitrage
+  - DeFi exploit
+  - smart contract vulnerability
+  - presale exploit
 ---
 
 # Meme Launcher - blockchain

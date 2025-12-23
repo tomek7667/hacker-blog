@@ -11,10 +11,17 @@
 		{%if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title
 		}}{% endif %}
 	</title>
+	
+	{% comment %} SEO Description: use seo_description if set, otherwise fall back to excerpt {% endcomment %}
 	<meta
 		name="description"
-		content="{{ page.excerpt | default: site.description | strip_html | truncatewords: 50 }}"
+		content="{{ page.seo_description | default: page.excerpt | default: site.description | strip_html | truncatewords: 50 }}"
 	/>
+
+	{% comment %} SEO Keywords from seo_keywords array {% endcomment %}
+	{% if page.seo_keywords.size > 0 %}
+	<meta name="keywords" content="{{ page.seo_keywords | join: ', ' }}" />
+	{% endif %}
 
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" href="{{ "/assets/favicon.png" |

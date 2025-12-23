@@ -1,6 +1,20 @@
 ---
 title: SekaiCTF 2025 - sekai-craft - rev - 35 solves
 published: true
+category: rev
+tags: [minecraft, xtea]
+difficulty: medium
+seo_description: "SekaiCTF 2025 sekai-craft reversing challenge writeup. Minecraft datapack XTEA cipher implementation using scoreboards, decrypted via Python script."
+seo_keywords:
+  - SekaiCTF 2025
+  - sekai-craft writeup
+  - CTF writeup
+  - reversing
+  - Minecraft datapack
+  - mcfunction
+  - XTEA cipher
+  - scoreboard VM
+  - Minecraft reversing
 ---
 
 # sekai-craft - rev

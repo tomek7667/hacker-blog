@@ -1,6 +1,21 @@
 ---
 title: HTB - Pod Diagnostics - web - hard
 published: true
+category: web
+tags: [xss, cache-poisoning, ssrf, puppeteer]
+difficulty: hard
+seo_description: "HackTheBox Pod Diagnostics web challenge writeup. Nginx cache poisoning to XSS, then SSRF via Puppeteer PDF generation to read local files."
+seo_keywords:
+  - HackTheBox
+  - HTB Pod Diagnostics
+  - CTF writeup
+  - web security
+  - Nginx cache poisoning
+  - XSS attack
+  - Puppeteer SSRF
+  - PDF generation exploit
+  - file:// protocol
+  - LFI
 ---
 
 In order to get the flag we need RCE to call `/readflag` and get the output. The PDF generating server has `Access-Control-Allow-Origin` set to `*` so we can make a request from any server to use it, similarly the `stats` server. The stats server calls different stats commands:

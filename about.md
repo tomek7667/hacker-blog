@@ -3,6 +3,34 @@ layout: page
 title: About
 ---
 
+<div id="about-3d"></div>
+<script type="module" src="/assets/js/about-animation.js"></script>
+
+<style>
+#about-3d {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 280px;
+	height: 280px;
+	z-index: 10;
+	pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+	#about-3d {
+		position: relative;
+		margin: 0 auto 2rem;
+		width: 200px;
+		height: 200px;
+	}
+}
+
+article {
+	position: relative;
+}
+</style>
+
 I'm a cybersecurity enthusiast from Poland.
 
 I also am:

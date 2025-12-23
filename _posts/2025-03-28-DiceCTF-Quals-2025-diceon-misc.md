@@ -1,6 +1,20 @@
 ---
 title: DiceCTF 2025 Quals - diceon - misc - 13 solves
 published: true
+category: misc
+tags: [ai, prompt-injection, llm]
+difficulty: medium
+seo_description: "DiceCTF 2025 Quals diceon challenge writeup. LLM prompt injection to bypass CODE_DETECTOR and smuggle flag between INNIE and OUTIE AI agents."
+seo_keywords:
+  - DiceCTF 2025
+  - diceon writeup
+  - CTF writeup
+  - AI security
+  - LLM prompt injection
+  - GPT-4o-mini
+  - code detector bypass
+  - multi-agent AI
+  - AI jailbreak
 ---
 
 # diceon - misc

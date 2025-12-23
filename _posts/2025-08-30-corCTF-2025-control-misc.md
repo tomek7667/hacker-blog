@@ -1,6 +1,20 @@
 ---
 title: corCTF 2025 - control - 36 solves
 published: true
+category: misc
+tags: [wasm, pid-controller]
+difficulty: medium
+seo_description: "corCTF 2025 control challenge writeup. WebAssembly PID controller implementation to track 60Hz sine wave in digital power supply simulation."
+seo_keywords:
+  - corCTF 2025
+  - control writeup
+  - CTF writeup
+  - WebAssembly
+  - WASM challenge
+  - PID controller
+  - control systems
+  - WAT programming
+  - digital signal processing
 ---
 
 # control - misc

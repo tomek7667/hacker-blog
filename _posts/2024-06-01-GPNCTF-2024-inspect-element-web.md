@@ -1,6 +1,19 @@
 ---
 title: GPN CTF 2024 - inspect-element - web
 published: true
+category: web
+tags: [chrome-debugging]
+difficulty: medium
+seo_description: "GPN CTF 2024 inspect-element challenge writeup. Chrome remote debugging exploitation to access file:// protocol and read flag via DevTools."
+seo_keywords:
+  - GPN CTF 2024
+  - inspect-element writeup
+  - CTF writeup
+  - web security
+  - Chrome remote debugging
+  - DevTools exploitation
+  - file protocol access
+  - socat tunneling
 ---
 
 Dockerfile is running chrome with the debugging port open.

@@ -1,6 +1,21 @@
 ---
 title: KalmarCTF - KalmarDSL - web - 14 solves
 published: true
+category: web
+tags: [rce, structurizr]
+difficulty: medium
+seo_description: "KalmarCTF 2025 KalmarDSL challenge writeup. Unauthenticated RCE in Structurizr via workspace extends URL bypassing restricted mode to execute Ruby script."
+seo_keywords:
+  - KalmarCTF 2025
+  - KalmarDSL writeup
+  - CTF writeup
+  - web security
+  - Structurizr vulnerability
+  - unauthenticated RCE
+  - DSL injection
+  - Ruby script execution
+  - restricted mode bypass
+  - 0day exploit
 ---
 
 # KalmarDSL - web

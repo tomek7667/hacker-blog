@@ -1166,6 +1166,18 @@ html {
 	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
+@media (max-width: 600px) {
+	.search-modal {
+		width: 95%;
+		max-height: 85vh;
+		border-radius: 12px;
+	}
+	
+	.search-overlay {
+		padding-top: 5vh;
+	}
+}
+
 .search-header {
 	display: flex;
 	align-items: center;
@@ -1214,24 +1226,32 @@ html {
 }
 
 .search-filters {
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
 	gap: 10px;
 	padding: 15px 20px;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-	flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+	.search-filters {
+		grid-template-columns: 1fr;
+	}
 }
 
 .search-filters select {
 	background: var(--bg-primary);
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	border-radius: 8px;
-	padding: 8px 12px;
+	padding: 10px 12px;
 	color: var(--text-primary);
 	font-family: "JetBrains Mono", monospace;
 	font-size: 0.85rem;
 	cursor: pointer;
 	outline: none;
 	transition: border-color 0.2s;
+	width: 100%;
+	min-width: 0;
 }
 
 .search-filters select:focus {

@@ -1,6 +1,21 @@
 ---
 title: PlaidCTF 2023 - Davy Jones' Putlocker - web - part 1
 published: true
+category: web
+tags: [xss, react]
+difficulty: easy
+seo_description: "PlaidCTF 2023 Dubs web challenge writeup. Simple XSS via unsanitized dangerouslySetInnerHTML in React playlist description to steal admin localStorage token."
+seo_keywords:
+  - PlaidCTF 2023
+  - Dubs writeup
+  - CTF writeup
+  - web security
+  - XSS attack
+  - React dangerouslySetInnerHTML
+  - localStorage token theft
+  - GraphQL
+  - Apollo client
+  - justCatTheFish
 ---
 
 # PlaidCTF 2023 - Davy Jones' Putlocker - web - part 1

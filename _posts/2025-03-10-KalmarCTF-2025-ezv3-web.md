@@ -1,6 +1,20 @@
 ---
 title: KalmarCTF - Ez flag v3 - web - 93 solves
 published: true
+category: web
+tags: [ssti, caddy]
+difficulty: easy
+seo_description: "KalmarCTF 2025 Ez flag v3 challenge writeup. Caddy server template injection via httpInclude to leak environment variable FLAG using env directive."
+seo_keywords:
+  - KalmarCTF 2025
+  - Ez flag v3 writeup
+  - CTF writeup
+  - web security
+  - Caddy server
+  - template injection
+  - httpInclude SSRF
+  - environment variable leak
+  - Caddyfile exploitation
 ---
 
 # Ez flag v3 - web

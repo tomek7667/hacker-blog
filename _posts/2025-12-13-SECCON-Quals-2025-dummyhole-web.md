@@ -1,8 +1,25 @@
 ---
 title: SECCON Quals 2025 - dummyhole - 15 solves
 published: true
-tags: [web, 8/10]
+category: web
+tags: [xss, csrf, path-traversal]
 difficulty: medium
+seo_description: "SECCON CTF Quals 2025 dummyhole web challenge writeup. Path traversal, MIME type bypass with image/png+json, CSRF exploit, and credentialless iframe bypass to steal cookies."
+seo_keywords:
+  - SECCON CTF 2025
+  - SECCON Quals 2025
+  - dummyhole writeup
+  - CTF writeup
+  - web security
+  - path traversal exploit
+  - CSRF attack
+  - XSS cookie stealing
+  - credentialless iframe bypass
+  - MIME type bypass
+  - image/png+json
+  - JavaScript import assertion
+  - RyotaK challenge
+  - browser security bypass
 ---
 
 # dummyhole - web

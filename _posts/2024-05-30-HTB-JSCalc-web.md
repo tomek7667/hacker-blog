@@ -1,6 +1,19 @@
 ---
 title: HTB - JS Calc - web - easy
 published: true
+category: web
+tags: [rce, nodejs]
+difficulty: easy
+seo_description: "HackTheBox JSCalc web challenge writeup. Server-side JavaScript eval injection leading to RCE and flag file read via Node.js fs module."
+seo_keywords:
+  - HackTheBox
+  - HTB JSCalc
+  - CTF writeup
+  - web security
+  - JavaScript eval injection
+  - Node.js RCE
+  - server-side code execution
+  - fs module exploit
 ---
 
 

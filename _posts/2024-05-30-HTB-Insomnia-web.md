@@ -1,6 +1,19 @@
 ---
 title: HTB - Insomnia - web - easy
 published: true
+category: web
+tags: [authentication-bypass, php, jwt]
+difficulty: easy
+seo_description: "HackTheBox Insomnia web challenge writeup. PHP authentication bypass by exploiting getWhere with duplicate JSON keys to login as administrator."
+seo_keywords:
+  - HackTheBox
+  - HTB Insomnia
+  - CTF writeup
+  - web security
+  - PHP authentication bypass
+  - JWT exploitation
+  - CodeIgniter
+  - JSON key duplication
 ---
 
 This challenge is a huge bootstrap app written in PHP.

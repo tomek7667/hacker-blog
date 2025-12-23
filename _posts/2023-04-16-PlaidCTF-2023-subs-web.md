@@ -1,6 +1,21 @@
 ---
 title: PlaidCTF 2023 - subs - web
 published: true
+category: web
+tags: [xss, graphql, cache-poisoning]
+difficulty: hard
+seo_description: "PlaidCTF 2023 Subs web challenge writeup. GraphQL injection and Apollo client cache poisoning to achieve XSS via @client directive abuse."
+seo_keywords:
+  - PlaidCTF 2023
+  - Subs writeup
+  - CTF writeup
+  - web security
+  - GraphQL injection
+  - Apollo cache poisoning
+  - XSS attack
+  - client directive
+  - React dangerouslySetInnerHTML
+  - qs library exploit
 ---
 
 # Cache Poisoning in GraphQL

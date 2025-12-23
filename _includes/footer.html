@@ -254,30 +254,30 @@
 			const res = await fetch("/search.json");
 			searchData = await res.json();
 			searchLoaded = true;
-			populateCategoryFilter();
+			populateTagFilter();
 		} catch (e) {
 			console.error("Failed to load search data:", e);
 		}
 	}
 
-	function populateCategoryFilter() {
-		const categoryFilter = document.getElementById("categoryFilter");
-		if (!categoryFilter || !searchData) return;
+	function populateTagFilter() {
+		const tagFilter = document.getElementById("tagFilter");
+		if (!tagFilter || !searchData) return;
 
-		const categories = new Set();
+		const tags = new Set();
 		searchData.forEach((post) => {
 			if (post.tags) {
-				post.tags.forEach((tag) => categories.add(tag));
+				post.tags.forEach((tag) => tags.add(tag));
 			}
 		});
 
-		Array.from(categories)
+		Array.from(tags)
 			.sort()
-			.forEach((cat) => {
+			.forEach((tag) => {
 				const option = document.createElement("option");
-				option.value = cat;
-				option.textContent = cat;
-				categoryFilter.appendChild(option);
+				option.value = tag;
+				option.textContent = tag;
+				tagFilter.appendChild(option);
 			});
 	}
 
@@ -318,6 +318,9 @@
 		const difficulty = document
 			.getElementById("difficultyFilter")
 			.value.toLowerCase();
+		const tag = document
+			.getElementById("tagFilter")
+			.value.toLowerCase();
 		const results = document.getElementById("searchResults");
 
 		if (!searchData) {
@@ -325,7 +328,7 @@
 			return;
 		}
 
-		if (!query && !category && !difficulty) {
+		if (!query && !category && !difficulty && !tag) {
 			showSearchHint();
 			return;
 		}
@@ -340,13 +343,17 @@
 
 			const matchesCategory =
 				!category ||
-				(post.tags && post.tags.some((t) => t.toLowerCase() === category));
+				(post.category && post.category.toLowerCase() === category);
 
 			const matchesDifficulty =
 				!difficulty ||
 				(post.difficulty && post.difficulty.toLowerCase() === difficulty);
 
-			return matchesQuery && matchesCategory && matchesDifficulty;
+			const matchesTag =
+				!tag ||
+				(post.tags && post.tags.some((t) => t.toLowerCase() === tag));
+
+			return matchesQuery && matchesCategory && matchesDifficulty && matchesTag;
 		});
 
 		if (filtered.length === 0) {
@@ -393,6 +400,7 @@
 		const searchInput = document.getElementById("searchInput");
 		const categoryFilter = document.getElementById("categoryFilter");
 		const difficultyFilter = document.getElementById("difficultyFilter");
+		const tagFilter = document.getElementById("tagFilter");
 		const overlay = document.getElementById("searchOverlay");
 
 		if (searchInput) {
@@ -403,6 +411,9 @@
 		}
 		if (difficultyFilter) {
 			difficultyFilter.addEventListener("change", performSearch);
+		}
+		if (tagFilter) {
+			tagFilter.addEventListener("change", performSearch);
 		}
 		if (overlay) {
 			overlay.addEventListener("click", function (e) {
