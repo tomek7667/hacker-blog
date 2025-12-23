@@ -11,15 +11,16 @@
 		{%if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title
 		}}{% endif %}
 	</title>
-	
-	{% comment %} SEO Description: use seo_description if set, otherwise fall back to excerpt {% endcomment %}
+
+	{% comment %} SEO Description: use seo_description if set, otherwise fall back
+	to excerpt {% endcomment %}
 	<meta
 		name="description"
 		content="{{ page.seo_description | default: page.excerpt | default: site.description | strip_html | truncatewords: 50 }}"
 	/>
 
-	{% comment %} SEO Keywords from seo_keywords array {% endcomment %}
-	{% if page.seo_keywords.size > 0 %}
+	{% comment %} SEO Keywords from seo_keywords array {% endcomment %} {% if
+	page.seo_keywords.size > 0 %}
 	<meta name="keywords" content="{{ page.seo_keywords | join: ', ' }}" />
 	{% endif %}
 
@@ -27,13 +28,20 @@
 	<link rel="icon" type="image/png" href="{{ "/assets/favicon.png" |
 	relative_url }}">
 
-	<!-- Fonts -->
+	<!-- Fonts - async loading to prevent render blocking -->
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link
+		rel="preload"
+		as="style"
 		href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
-		rel="stylesheet"
+		onload="this.onload=null;this.rel='stylesheet'"
 	/>
+	<noscript
+		><link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+			rel="stylesheet"
+	/></noscript>
 
 	<!-- Styles -->
 	<link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl |

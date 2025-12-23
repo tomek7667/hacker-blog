@@ -75,7 +75,8 @@ body::before {
 	padding: 0 20px;
 }
 
-section {
+section,
+main {
 	display: block;
 	margin: 0 0 20px 0;
 }
@@ -234,6 +235,7 @@ header .container {
 	min-height: 60vh;
 }
 
+main img,
 section img {
 	max-width: 100%;
 	border-radius: 8px;
@@ -243,6 +245,7 @@ section img {
 	cursor: zoom-in;
 }
 
+main img:hover,
 section img:hover {
 	transform: scale(1.02);
 	box-shadow: 0 8px 30px rgba(0, 212, 255, 0.2);
@@ -1172,7 +1175,7 @@ html {
 		max-height: 85vh;
 		border-radius: 12px;
 	}
-	
+
 	.search-overlay {
 		padding-top: 5vh;
 	}
