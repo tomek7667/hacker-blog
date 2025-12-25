@@ -22,6 +22,10 @@ seo_keywords:
   - browser security bypass
 ---
 
+<ins>**Recommended: [Full video write-up](https://youtu.be/1q-irgIjk4M)**</ins>
+
+---
+
 # dummyhole - web
 
 _author: RyotaK_
