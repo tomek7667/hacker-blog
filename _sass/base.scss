@@ -235,6 +235,17 @@ header .container {
 	min-height: 60vh;
 }
 
+.home-disclaimer {
+	margin: 0 0 20px;
+	padding: 10px 14px;
+	border: 1px solid rgba(0, 212, 255, 0.2);
+	border-radius: 10px;
+	background: var(--bg-secondary);
+	color: var(--text-secondary);
+	font-size: 0.9rem;
+	font-family: "JetBrains Mono", monospace;
+}
+
 main img,
 section img {
 	max-width: 100%;
