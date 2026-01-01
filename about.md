@@ -36,6 +36,7 @@ I'm a cybersecurity enthusiast from Poland.
 
 I also am:
 
+- starting a [write-up youtube channel](https://u.cyber-man.pl/vev9) to engrave the challs in my mind
 - working as a sr software engineer in gdańsk
 - actively participating in various [CTFs](https://ctftime.org/event/list/upcoming) as a member of [justCatTheFish](https://justcatthefish.team/) ctf team ([ctftime link](https://ctftime.org/team/33893))
 - part-time studying computer science masters at [gdańsk tech](https://pg.edu.pl/) university
