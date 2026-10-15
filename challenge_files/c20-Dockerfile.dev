@@ -1,0 +1,20 @@
+FROM python:3.12-slim
+WORKDIR /app
+ENV PYTHONPATH=/app \
+    C20_WEB_DIR=/app/web \
+    C20_PIECES_DIR=/app/vendor/modern-interiors/character-pieces/16x16 \
+    C20_ROOM_DIR=/app/vendor/modern-interiors/room \
+    C20_ROOMS_FILE=/app/rooms.json \
+    C20_ROOM_OVERRIDE=/app/data/room_override.json \
+    C20_SECRET_KEY_FILE=/app/data/secret_key
+COPY backend/requirements.txt ./backend-requirements.txt
+RUN pip install --no-cache-dir -r backend-requirements.txt "pillow>=11" requests
+COPY frontend/pyproject.toml ./pyproject.toml
+COPY frontend/src ./src
+RUN pip install --no-cache-dir .
+COPY backend ./backend
+COPY frontend/web ./web
+COPY frontend/vendor ./vendor
+COPY frontend/rooms.json ./rooms.json
+EXPOSE 9200
+CMD ["python", "-m", "backend.server"]
